@@ -1,0 +1,97 @@
+.foodItem{
+    list-style: none;
+    display: flex;
+    margin-bottom: 20px;
+    width: 40%;
+    padding-left: 80px;
+}
+
+@media screen and (max-width: 768px) {
+    .foodItem{
+        padding-left: 0px;
+        width: 100%;
+    }
+}
+
+.foodItemImage{
+    width: 200px;
+    height: 140px;
+    border-radius: 8px;
+
+}
+
+.foodDetails{
+    padding-left: 20px;
+}
+
+.foodRating-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 30px;
+}
+
+.foodName{
+    font-size: 18px;
+    color: #334155;
+    font-weight: 700;
+    font-family: "Roboto";
+}
+
+@media screen and (max-width: 768px){
+    .foodName{
+        font-size: 16px;
+    }
+}
+
+.foodCost{
+    font-size: 14px;
+    color: #334155;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-weight: 500;
+    font-family: "Roboto";
+}
+
+.foodRating{
+    font-size: 14px;
+    padding-left: 5px;
+    color: #0A1F44;
+    font-weight: 700;
+    font-family: "Roboto";
+}
+
+.addButton{
+    color: #FFA412;
+    border: #FFA412 2px solid;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 7px;
+    font-family: "Roboto";
+}
+
+.quantity-container{
+    display: flex;
+    align-items: center;
+}
+
+.quantityButton{
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    font-family: "Roboto";
+}
+
+.quantity{
+    padding-bottom: 5px;
+    color: #FFA412;
+    font-family: "Roboto";
+}

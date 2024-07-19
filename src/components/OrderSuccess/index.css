@@ -1,0 +1,40 @@
+.order-successful-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+.order-successful-responsive-container{
+    text-align: center;
+}
+
+.order-successful-heading{
+    color: #1E293B;
+    font-size: 24px;
+    font-weight: 500;
+    font-family: "Roboto";
+
+}
+
+.order-successful-para{
+    color: #64748B;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "Roboto";
+}
+
+.order-successful-button{
+    background-color:  #F7931E;
+    color: #fff;
+    height: 32px;
+    width: 130px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 7px;
+    font-weight: 500;
+    font-family: "Roboto";
+    font-size: 12px;
+}

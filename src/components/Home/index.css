@@ -1,0 +1,150 @@
+.break{
+    width: 87%;
+}
+
+@media screen and (max-width: 768px){
+    .break{
+        display: none;
+    }
+}
+
+.restaurants-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-left: 50px;
+    margin-top: 50px;
+    /* margin-right: 80px; */
+}
+
+@media screen and (max-width: 768px){
+    .restaurants-container{
+        flex-direction: column;
+        margin-left: 20px;
+        /* width: 100%; */
+        padding-left: 0px;
+        margin-top: 30px;
+    }
+}
+
+.restaurantNavigation{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.angleIcon{
+    background-color: transparent;
+    border: 1px solid #000;
+    margin: 10px;
+    font-family: "Roboto";
+    color: #334155;
+    padding: 1px;
+    cursor: pointer;
+}
+
+.pageNum{
+    color: #334155;
+    font-size: 14px;
+    font-family: "Bree Serif";
+}
+
+
+
+.no-products-view{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.no-products-view{
+    padding: 10px;
+}
+
+
+.no-products-img{
+    width: 20%;
+}
+
+@media screen and (max-width: 768px) {
+    .no-products-img{
+        width: 60%;
+    }
+}
+
+.no-products-heading{
+    font-size: 25px;
+    font-family: "Roboto";
+}
+
+.no-products-description{
+    font-size: 15px;
+    font-family: "Roboto";
+}
+
+
+.no-jobs-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.homeLoader-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-jobs-container{
+    padding: 30px;
+}
+
+.failureButton{
+    width: 60px;
+    height: 30px;
+    background-color: rgb(86, 132, 239);
+    color: #fff;
+    font-size: 14px;
+    font-family: "Roboto";
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.no-jobs-image{
+    width: 30%;
+}
+
+@media screen and (max-width: 768px) {
+    .no-jobs-image{
+        width: 50%;
+    }
+}
+
+.failureHeading{
+    font-size: 25px;
+    font-family: "Roboto";
+}
+
+@media screen and (max-width: 768px){
+    .failureHeading{
+        font-size: 20px;
+    }
+}
+
+.failureDescription{
+    font-size: 15px;
+    font-family: "Roboto";
+}
+
+@media screen and (max-width: 768px){
+    .failureDescription{
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,66 @@
+.footer-container{
+    background-color: #0F172A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    
+}
+
+/* @media screen and (max-width: 768px) {
+    .footer-container{
+        width: 100%;
+    }
+} */
+
+.appNameAndLogo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.FooterImage{
+    width: 40px;
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 768px){
+    .FooterImage{
+        width: 30px;
+    }
+}
+
+.appName{
+    color: #fff;
+    font-family: "Roboto";
+    font-size: 27px;
+    font-weight: 700;
+    padding-left: 10px;
+    font-style: italic;
+}
+
+@media screen and (max-width: 768px){
+    .appName{
+        font-size: 20px;
+    }
+}
+
+.footerDescription{
+    color: #fff;
+    font-family: "Roboto";
+    font-size: 14px;
+    text-align: center;
+    line-height: 32px;
+}
+
+.printrestImage{
+    width: 20px;
+    border-radius: 15px;
+}
+
+.footerIcon{
+    color: #fff;
+    padding: 10px;
+}
