@@ -8,12 +8,12 @@
     padding-bottom: 30px;
     
 }
-
-/* @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px){
     .footer-container{
-        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
-} */
+}
 
 .appNameAndLogo{
     display: flex;
@@ -24,6 +24,7 @@
 .FooterImage{
     width: 40px;
     border-radius: 20px;
+    
 }
 
 @media screen and (max-width: 768px){
@@ -53,6 +54,7 @@
     font-size: 14px;
     text-align: center;
     line-height: 32px;
+    margin: 0px;
 }
 
 .printrestImage{

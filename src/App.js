@@ -1,4 +1,4 @@
-import { Route, Switch,Redirect } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import { Component } from 'react'
 import AppContext from './Context/AppContext'
 import React from 'react'
@@ -95,7 +95,6 @@ class App extends Component {
             <ProtectedRoute exact path="/orderSuccess" component={OrderSuccess} />
             <Route path="/not-found" component={NotFound} />
             <Redirect to="not-found" />
-            {/* <Route component={NotFound} /> */}
           </Switch>
         </div>
       </AppContext.Provider>
@@ -103,16 +102,5 @@ class App extends Component {
   }
 }
 
-
-// const App = () => {
-//   return (
-//     <Switch>
-//       <Route path="/login" component={LoginPage} />
-//       <ProtectedRoute exact path="/" component={Home} />
-//       <ProtectedRoute eaxct path="/restaurants-list/:id" component={RestaurantItemDetails} />
-//       <ProtectedRoute eaxct path="/cart" component={Cart} />
-//     </Switch>
-//   )
-// }
 
 export default App

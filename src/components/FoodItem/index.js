@@ -75,25 +75,4 @@ class FoodItem extends Component {
 
 
 
-
-// const FoodItem = props =>{
-//     const {foodItemDetails} = props
-//     const {name, cost,imageUrl,rating} = foodItemDetails
-
-//     return(
-//         <li className="foodItem">
-//             <img src={imageUrl} alt="name" className="foodItemImage"/>
-//             <div className="foodDetails">
-//                 <h1 className="foodName">{name}</h1>
-//                 <p className="foodCost">₹ {cost}</p>
-//                 <div className="foodRating-container">
-//                     <FaStar size={15} color='#f7d707' />
-//                     <p className="foodRating">{rating}</p>
-//                 </div>
-//                 <button className="addButton" type="button">ADD</button>
-//             </div>
-//         </li>
-//     )
-// }
-
 export default FoodItem

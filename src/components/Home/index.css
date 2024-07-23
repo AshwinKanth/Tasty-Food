@@ -15,14 +15,12 @@
     width: 90%;
     margin-left: 50px;
     margin-top: 50px;
-    /* margin-right: 80px; */
 }
 
 @media screen and (max-width: 768px){
     .restaurants-container{
         flex-direction: column;
         margin-left: 20px;
-        /* width: 100%; */
         padding-left: 0px;
         margin-top: 30px;
     }
@@ -58,15 +56,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.no-products-view{
+    justify-content: center;
     padding: 10px;
+    height: 50vh;
 }
 
 
 .no-products-img{
-    width: 20%;
+    width: 25%;
 }
 
 @media screen and (max-width: 768px) {
@@ -81,8 +78,9 @@
 }
 
 .no-products-description{
-    font-size: 15px;
+    font-size: 20px;
     font-family: "Roboto";
+    font-weight: 500;
 }
 
 

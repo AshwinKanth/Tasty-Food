@@ -15,9 +15,6 @@
         padding: 0px;
         justify-content: center;
         align-items: flex-start;
-        /* margin-left: 20px; */
-        /* width: 100%; */
-        /* margin-top: 20px; */
     }
 }
 
@@ -127,15 +124,12 @@
 }
 
 .foodList-container{
-    /* display: flex;
-    flex-direction: row;
-    flex-wrap: wrap; */
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     width: 90%;
     margin-left: 50px;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 @media screen and (max-width: 768px){
@@ -153,3 +147,49 @@
     justify-content: center;
     height: 100vh;
 }
+
+
+
+.search-container {
+    margin-left: 170px;
+    width: 300px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: linear-gradient(to bottom,rgb(227, 213, 255),rgb(255, 231, 231));
+    border-radius: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
+    margin-top: 20px;
+  }
+
+  @media screen and (max-width: 768px){
+  .search-container{
+    margin-left: 10px;
+    width: 95%;
+  }
+}
+
+  
+  .search-input {
+    width: 290px;
+    height: 40px;
+    border: none;
+    outline: none;
+    caret-color: rgb(255, 81, 0);
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+    padding-left: 15px;
+    letter-spacing: 0.8px;
+    color: rgb(19, 19, 19);
+    font-size: 13.4px;
+  }
+
+  @media screen and (max-width: 768px){
+    .search-input{
+        width: 96%;
+    }
+  }

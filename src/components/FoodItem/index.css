@@ -6,6 +6,11 @@
     padding-left: 80px;
 }
 
+.foodItem:hover{
+    transform: translateX(100px);
+    transition: .5s;
+}
+
 @media screen and (max-width: 768px) {
     .foodItem{
         padding-left: 0px;

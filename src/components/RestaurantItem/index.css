@@ -13,6 +13,11 @@
     list-style: none;
 }
 
+.restaurantItem:hover{
+    transform: scale(1.1);
+    transition: .5s;
+}
+
 @media screen and (max-width: 768px){
     .restaurantItem{
         width: 100%;

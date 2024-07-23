@@ -2,7 +2,6 @@ import { Component } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Popup from 'reactjs-popup'
 import AppContext from "../../Context/AppContext";
-import { IoSearch } from "react-icons/io5";
 import { IoMenuSharp } from "react-icons/io5";
 import { withRouter } from 'react-router-dom'
 import Cookies from 'js-cookie'
@@ -36,29 +35,12 @@ class Header extends Component {
     )
 
     render() {
-        const { searchInput } = this.props
-        const onChangeSearchInput = event => {
-            const { changeSearchInput } = this.props
-            changeSearchInput(event.target.value)
-        }
-
-        const onEnterSearchInput = event => {
-            const { enterSearchInput } = this.props
-            if (event.key === 'Enter') {
-                enterSearchInput()
-            }
-        }
-
         return (
             <div className="header-container">
                 <nav className="nav-container">
                     <Link to="/" className="link">
                         <img className="navImage" src="https://res.cloudinary.com/dq1ktqbtb/image/upload/v1720513006/TastyFood_Image_gni5dd.png" alt="" />
                     </Link>
-                    <div className="lgSearch-container">
-                        <IoSearch size={20} />
-                        <input type="search" className="searchInput" onChange={onChangeSearchInput} onKeyDown={onEnterSearchInput} value={searchInput} placeholder="Search for Biryani, Pizza and More..." />
-                    </div>
                     <div className="navItems-container">
                         <Link to="/" className="link">
                             <p className="navItem">Home</p>
@@ -91,8 +73,6 @@ class Header extends Component {
                                 )}
                             </Popup>
                         </div>
-
-                        {/* <button className="logOutButton navItem" onClick={this.onClickLogout}>Logout</button> */}
                     </div>
 
                     <div className="sm-nav-items-container">
@@ -115,10 +95,6 @@ class Header extends Component {
                         </Popup>
                     </div>
                 </nav>
-                <div className="smSearch-container">
-                    <IoSearch size={20} />
-                    <input type="search" className="searchInput" onChange={onChangeSearchInput} onKeyDown={onEnterSearchInput} value={searchInput} />
-                </div>
             </div>
         )
     }

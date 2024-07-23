@@ -40,9 +40,9 @@ class Home extends Component {
     getrestaurantsList = async () => {
         this.setState({ apiStatus: apiStatusConstant.inProgress })
         const jwtToken = Cookies.get('jwt_token')
-        const { currentPage, searchInput, sortOption } = this.state
+        const { currentPage, sortOption } = this.state
 
-        const apiUrl = `https://apis.ccbp.in/restaurants-list?search=${searchInput}&offset=${currentPage * 9}&limit=${9}&sort_by_rating=${sortOption}`
+        const apiUrl = `https://apis.ccbp.in/restaurants-list?offset=${currentPage * 9}&limit=${9}&sort_by_rating=${sortOption}`
         const options = {
             headers: {
                 Authorization: `Bearer ${jwtToken}`
@@ -61,7 +61,6 @@ class Home extends Component {
                 totalReviews: eachItem.user_rating.total_reviews,
                 rating: eachItem.user_rating.rating
             }))
-            console.log(data)
             this.setState({ restaurantsList: updatedData, apiStatus: apiStatusConstant.success })
         } else {
             this.setState({ apiStatus: apiStatusConstant.failure })
@@ -69,27 +68,34 @@ class Home extends Component {
     }
 
     renderRestaurants = () => {
-        const { restaurantsList } = this.state
-        const shouldShowRestaurantList = restaurantsList.length > 0
+        const { restaurantsList, searchInput } = this.state
 
-        return shouldShowRestaurantList ? (
-            <ul className="restaurants-container">
-                {restaurantsList.map(eachRes => (
-                    <RestaurantItem key={eachRes.id} restaurantItemDetails={eachRes} />
-                ))}
-            </ul>
-        ) : (
-            <div className="no-products-view">
-                <img
-                    src="https://assets.ccbp.in/frontend/react-js/nxt-trendz/nxt-trendz-no-products-view.png"
-                    className="no-products-img"
-                    alt="no products"
-                />
-                <h1 className="no-products-heading">No Products Found</h1>
-                <p className="no-products-description">
-                    We could not find any products.
-                </p>
-            </div>
+        const updatedList = restaurantsList.filter(each =>
+            each.name.toLowerCase().includes(searchInput.toLowerCase()),
+        )
+
+        return (
+            <>
+                {updatedList.length === 0 ? (
+                    <div className="no-products-view">
+                        <img
+                            src="https://assets.ccbp.in/frontend/react-js/nxt-trendz/nxt-trendz-no-products-view.png"
+                            className="no-products-img"
+                            alt="no products"
+                        />
+                        <h1 className="no-products-heading">No Restaurants Found</h1>
+                        <p className="no-products-description">
+                            We could not find any Restaurants.
+                        </p>
+                    </div>
+                ) : (
+                    <ul className="restaurants-container">
+                        {updatedList.map(eachRes => (
+                            <RestaurantItem restaurantItemDetails={eachRes} key={eachRes.id} />
+                        ))}
+                    </ul>
+                )}
+            </>
         )
     }
 
@@ -109,13 +115,7 @@ class Home extends Component {
         }
     }
 
-    enterSearchInput = () => {
-        this.getrestaurantsList()
-    }
 
-    changeSearchInput = searchInput => {
-        this.setState({ searchInput })
-    }
 
     updateOption = option => {
         this.setState({ sortOption: option }, this.getrestaurantsList)
@@ -161,16 +161,24 @@ class Home extends Component {
     }
 
 
+    onChangeSearchInput = input => {
+        this.setState({ searchInput: input })
+    }
+
+
     render() {
-        const { currentPage, searchInput, sortOption } = this.state
+        const { currentPage, sortOption } = this.state
+
         return (
             <>
-                <Header searchInput={searchInput} changeSearchInput={this.changeSearchInput} enterSearchInput={this.enterSearchInput} />
+                <Header />
                 <ReactSlick />
                 <Filters
                     sortOption={sortOption}
                     sortByOptions={sortByOptions}
-                    updateOption={this.updateOption} />
+                    updateOption={this.updateOption}
+                    onChangeSearchInput={this.onChangeSearchInput}
+                />
                 <hr className="break" />
                 {this.rendeRestaurantsView()}
                 <div className="restaurantNavigation">

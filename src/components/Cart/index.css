@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     min-height: 75vh;
-    /* padding-top: 100px; */
   }
   
   @media screen and (min-width: 768px) {
@@ -16,7 +15,6 @@
     flex-direction: column;
     width: 90%;
     max-width: 1110px;
-    /* padding-top: 50px; */
   }
   
   @media screen and (min-width: 768px) {
@@ -105,4 +103,9 @@
   padding-right: 16px;
   outline: none;
   cursor: pointer;
+}
+
+.hrBreak{
+  border: 1px dashed #9f9fa7;
+  width: 100%;
 }

@@ -15,7 +15,7 @@ const apiStatusConstant = {
 
 
 class RestaurantItemDetails extends Component {
-    state = { restaurantItemsList: [], restaurantFoodItem: [], apiStatus: apiStatusConstant.initial,searchInput:''}
+    state = { restaurantItemsList: [], restaurantFoodItem: [], apiStatus: apiStatusConstant.initial, searchInput: "" }
 
     componentDidMount() {
         this.getRestaurantDetails()
@@ -40,10 +40,9 @@ class RestaurantItemDetails extends Component {
         const { match } = this.props
         const { params } = match
         const { id } = params
-        const {searchInput} = this.state
 
-        const apiUrl = `https://apis.ccbp.in/restaurants-list/${id}?search=${searchInput}`
-        console.log(apiUrl)
+
+        const apiUrl = `https://apis.ccbp.in/restaurants-list/${id}`
         const options = {
             headers: {
                 Authorization: `Bearer ${jwtToken}`
@@ -59,23 +58,51 @@ class RestaurantItemDetails extends Component {
             const foodItemUpdatedData = fetchedData.food_items.map(eachItem => this.getFormattedData(eachItem))
 
             this.setState({ restaurantItemsList: updatedData, restaurantFoodItem: foodItemUpdatedData, apiStatus: apiStatusConstant.success })
-        }else {
+        } else {
             this.setState({ apiStatus: apiStatusConstant.failure })
         }
     }
 
-    renderFoodItem = () => {
-        const { restaurantFoodItem } = this.state
-        const shouldShowRestaurantFoodItem = restaurantFoodItem.length > 0
+    onChangeSearchInput = (event) => {
+        this.setState({searchInput: event.target.value  })
+    }
 
-        return shouldShowRestaurantFoodItem ? (
-            <ul className="foodList-container">
-                {restaurantFoodItem.map(eachFood => (
-                    <FoodItem key={eachFood.id} foodItemDetails={eachFood} />
-                ))}
-            </ul>
-        ):(
-            <p>No Item found</p>
+    renderFoodItem = () => {
+        const { restaurantFoodItem, searchInput } = this.state
+
+        const updatedList = restaurantFoodItem.filter(each =>
+            each.name.toLowerCase().includes(searchInput.toLowerCase()),
+        )
+
+        return (
+            <>
+                <div className="search-container">
+                    <input
+                        type="search"
+                        placeholder="Search Biryani, Pizza..."
+                        className="search-input"
+                        onChange={this.onChangeSearchInput}
+                    />
+                </div>
+                {updatedList.length === 0 ? (
+                    <div className="no-products-view">
+                    <img
+                        src="https://assets.ccbp.in/frontend/react-js/nxt-trendz/nxt-trendz-no-products-view.png"
+                        className="no-products-img"
+                        alt="no products"
+                    />
+                    <p className="no-products-description">
+                    No Item Found
+                    </p>
+                </div>
+                ) : (
+                    <ul className="foodList-container">
+                        {updatedList.map(eachFood => (
+                            <FoodItem key={eachFood.id} foodItemDetails={eachFood} />
+                        ))}
+                    </ul>
+                )}
+            </>
         )
     }
 
@@ -149,21 +176,10 @@ class RestaurantItemDetails extends Component {
         }
     }
 
-    enterSearchInput = () => {
-        this.getRestaurantDetails()
-    }
-
-    changeSearchInput = searchInput => {
-        this.setState({ searchInput })
-    }
-
-
     render() {
-        const {searchInput} = this.state
-
         return (
             <>
-                <Header searchInput={searchInput} changeSearchInput={this.changeSearchInput} enterSearchInput={this.enterSearchInput}  />
+                <Header />
                 <div className="restaurantItemDetails-container">
                     {this.rendeRestaurantItemsView()}
                 </div>

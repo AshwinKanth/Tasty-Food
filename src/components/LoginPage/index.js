@@ -11,11 +11,6 @@ class LoginPage extends Component {
     state={username:'' , password:'', errMsg: '',isPasswordVisible: false,}
 
 
-    // onClickShowPassword = (event) =>{
-    //     this.setState({showPassword: event.target.checked})
-    // }
-
-
     onChangeUsername = event =>{
         this.setState({username: event.target.value})
     }
@@ -75,16 +70,6 @@ class LoginPage extends Component {
         )
       }
 
-// renderShowPassword = () =>(
-//     <div className="showPassword-container">
-//          <input type="checkbox" id="checkBox" onClick={this.onClickShowPassword}/>
-//          <label className="showPasswordLabel" htmlFor="checkBox">Show password</label>
-//          <button type="button" onClick={this.onClickShowPassword}>
-//             <IoIosEye size={15}  />
-//          </button>
-//     </div>
-// )
-
 onSubmitSuccess = jwtToken => {
     Cookies.set('jwt_token', jwtToken, {expires: 30})
     const {history} = this.props
@@ -121,9 +106,6 @@ onSubmitForm = async event => {
           return <Redirect to="/" />
         }
 
-        // const passwordType = showPassword ? 'text' : 'password'
-
-        // console.log(showPassword)
 
         return (
             <div className="loginPage-container">
@@ -136,12 +118,7 @@ onSubmitForm = async event => {
                         <form className="form-container" onSubmit={this.onSubmitForm}>
                             <label className="label" htmlFor="username">USERNAME</label>
                             <input type="text" id="username" className="input" value={username} onChange={this.onChangeUsername}  placeholder="Username"/>
-
-                            {/* <label className="label" htmlFor="password">Password</label>
-                            <input type={passwordType} id="password" className="input" value={password} onChange={this.onChangePassword}/> */}
-
                             {this.renderShowPassword()}
-
                             <button className="loginButton" type="submit">Login</button>
                             <p className="err-msg">{errMsg}</p>
                         </form>

@@ -41,35 +41,5 @@ class CartSummary extends Component {
   }
 }
 
-// const CartSummary = () => (
-//   <AppContext.Consumer>
-//     {value => {
-//       const { cartList } = value
-//       let total = 0
-//       cartList.forEach(eachItem => {
-//         total += eachItem.cost * eachItem.quantity
-//       })
-
-//       const onClickPlaceOrder = () =>{
-//         this.setState({cartList: []})
-//       }
-
-//       return (
-//         <div className="cartSummary-container">
-//           <div className="total-container">
-//             <h1 className="order-total">Order Total:</h1>
-//             <h1 className="total">₹ {total}/-</h1>
-//           </div>
-//           <p className="items-count">{cartList.length} items in cart</p>
-//           <Link to="/orderSuccess">
-//             <button type="button" className="placeOrder-button" onClick={onClickPlaceOrder}>
-//               Place Order
-//             </button>
-//           </Link>
-//         </div>
-//       )
-//     }}
-//   </AppContext.Consumer>
-// )
 
 export default CartSummary
