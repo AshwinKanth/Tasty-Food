@@ -35,6 +35,12 @@ class Header extends Component {
     )
 
     render() {
+        const {location} = this.props
+        const {pathname} = location
+        const pathParts = pathname.split('/')
+        const path = pathParts[1]
+         const homeLinkColor = path === "" ? "linkActive" : ""
+        const cartLinkColor = path === "cart" ? "linkActive" : ""
         return (
             <div className="header-container">
                 <nav className="nav-container">
@@ -43,10 +49,10 @@ class Header extends Component {
                     </Link>
                     <div className="navItems-container">
                         <Link to="/" className="link">
-                            <p className="navItem">Home</p>
+                            <p className={`${homeLinkColor} navItem`}>Home</p>
                         </Link>
                         <Link to="/cart" className="link">
-                            <p className="navItem">Cart {this.renderCartItemsCount()}</p>
+                            <p className={`navItem ${cartLinkColor}`}>Cart {this.renderCartItemsCount()}</p>
                         </Link>
                         <div>
                             <Popup
@@ -85,15 +91,14 @@ class Header extends Component {
                         >
                             <div className="smNav-container">
                                 <Link to="/" className="link">
-                                    <p className="smNavItem">Home</p>
+                                    <p className= {`${homeLinkColor} smNavItem`}>Home</p>
                                 </Link>
                                 <Link to="/cart" className="link">
-                                    <p className="smNavItem">Cart {this.renderCartItemsCount()}</p>
+                                    <p className={`${cartLinkColor} smNavItem`}>Cart {this.renderCartItemsCount()}</p>
                                 </Link>
                                 <button className="logOutButton" onClick={this.onClickLogout}>Logout</button>
                             </div>
-                        </Popup>
-                    </div>
+                        </Popup>                    </div>
                 </nav>
             </div>
         )

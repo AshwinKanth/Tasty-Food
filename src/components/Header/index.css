@@ -113,6 +113,15 @@
     color: #334155;
 }
 
+.linkActive{
+    color: #F7931E;
+}
+
+
+.navItem:hover {
+    color: #F7931E;
+}
+
 
 .logOutButton {
     background-color: #F7931E;
