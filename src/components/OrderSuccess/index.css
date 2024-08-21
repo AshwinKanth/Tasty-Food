@@ -8,6 +8,10 @@
 
 .order-successful-responsive-container{
     text-align: center;
+     display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
 }
 
 .order-successful-heading{
@@ -37,4 +41,9 @@
     font-weight: 500;
     font-family: "Roboto";
     font-size: 12px;
+}
+
+.succesAnimation{
+    width: 150px;
+    height: 150px;
 }
